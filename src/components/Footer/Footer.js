@@ -17,7 +17,7 @@ class Footer extends Component {
         <div id='copyright__container'>
           <span className='footer__text'>Abu Darda</span> 
           <i id='copyright' className='far fa-copyright fa-xs'></i>
-          <span className='footer__text'>2021</span> 
+          <span className='footer__text'>{new Date().getFullYear()}</span> 
         </div>
       </Navbar> 
     );  
