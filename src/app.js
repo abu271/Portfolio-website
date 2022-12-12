@@ -1,5 +1,5 @@
 import React, {lazy, Suspense} from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Loader from './components/Loader/Loader';
 
 // Pages
@@ -15,13 +15,13 @@ const App = () => {
     <div>
       <Router>
         <Suspense fallback={<Loader loading={true} />}>
-          <Switch>
-            <Route exact path='/' component={ Home } />
-            <Route path='/about' component={ About } />
-            <Route path='/contact' component={ Contact } />
-            <Route path='/projects' component={ Projects } />
-            <Route component={ NotFound } />
-          </Switch>
+          <Routes>
+            <Route path='/' element={ <Home /> } />
+            <Route path='/about' element={ <About /> } />
+            <Route path='/contact' element={ <Contact /> } />
+            <Route path='/projects' element={ <Projects /> } />
+            <Route element={ NotFound } />
+          </Routes>
         </Suspense>
       </Router>
     </div>
