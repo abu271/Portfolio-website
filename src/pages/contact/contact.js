@@ -92,9 +92,11 @@ class Contact extends Component {
                       <Form.Label>Message</Form.Label>
                       <textarea className='form-control' rows='5' id='message' placeholder='Type your message...'></textarea>
                     </Form.Group>
-                    <Button variant='primary' type='submit'>
-                    Submit
-                    </Button>
+                    <div id='submit-button'>
+                      <Button variant='primary' type='submit'>
+                      Submit
+                      </Button>
+                    </div>
                   </Form>
               } 
             </Col>

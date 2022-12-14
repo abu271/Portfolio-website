@@ -10,6 +10,21 @@
 }
 
 #card__deck {
+  display: flex;
   padding: 10px;
   margin: 0;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+
+/*Mobile Query*/
+@media only screen and (max-width: 480px) {
+  #card__deck {
+    flex-direction: column;
+    display: flex;
+    padding: 10px;
+    margin: 0;
+    justify-content: space-evenly;
+  }
 }

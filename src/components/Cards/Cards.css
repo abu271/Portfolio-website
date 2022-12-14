@@ -21,5 +21,6 @@
   .card {
     background-color: rgb(247, 248, 252);
     margin: auto;
+    margin-top: 5px;
   }
 }

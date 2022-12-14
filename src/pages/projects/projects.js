@@ -1,6 +1,5 @@
 import React from 'react';
 import Navigation from '../../components/Navbar/Navigation';
-import { Card } from 'react-bootstrap';
 import Cards from '../../components/Cards/Cards';
 import './projects.css';
 import Footer from '../../components/Footer/Footer';
@@ -44,12 +43,12 @@ const projects = () => {
       <h1 className='title'>
         PROJECTS
       </h1>
-      <Card id='card__deck'>
+      <div id='card__deck'>
         <Cards title='Yelp Camp' {...yelpCamp} />
         <Cards title='Redux Calculator' {...reduxCalculator} />
         <Cards title='Random Quote Machine' {...randomQuote} />
         <Cards title='Drums' {...drums} />
-      </Card>
+      </div>
       <Footer />
     </div>
   );
