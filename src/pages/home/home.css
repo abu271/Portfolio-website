@@ -3,19 +3,17 @@
   font-weight: bold;
 }
 
+body {
+  background: linear-gradient(to right bottom, #0840da 70%, #4cecf1 50%);
+  margin: 100vh;
+}
+
 .btn-dark {
   font-family: 'Barlow', sans-serif;
   font-size: 22px;
   font-weight: bold;
 }
 
-canvas{
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  background: black;
-}
 
 /*Desktop Query*/
 @media only screen and (min-width: 768px) {
@@ -51,6 +49,10 @@ canvas{
     color: aliceblue;
     font-family: 'Barlow', sans-serif; 
 
+  }
+
+  body {
+    background: linear-gradient(to right bottom, #0840da 70%, #4cecf1 50%);
   }
 
   #sentence-formatting {
