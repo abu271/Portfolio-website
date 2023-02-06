@@ -1,9 +1,9 @@
 import React from 'react';
 
-const error404 = props => {
+const error404 = () => {
   return (
     <h1>
-      Error 404 Page not found
+      Error 404 - Page not found
     </h1>
   );
 };
