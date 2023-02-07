@@ -3,7 +3,15 @@ import { Card, Button } from 'react-bootstrap';
 
 import './Cards.css';
 
-const Cards = props => {
+interface Props {
+  title?: string,
+  img: string,
+  text:string,
+  src: string,
+  demo: string
+}
+
+const Cards: React.FunctionComponent<Props> = props => {
   return (
     <Card className='card' style={{ width: '18rem' }}>
       <Card.Img variant='top' src={props.img} />

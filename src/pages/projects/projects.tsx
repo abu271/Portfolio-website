@@ -3,6 +3,7 @@ import Navigation from '../../components/Navbar/Navigation';
 import Cards from '../../components/Cards/Cards';
 import './projects.css';
 import Footer from '../../components/Footer/Footer';
+import {ProjectType} from '../../types';
 
 // Project images
 import drumsPic from '../../images/drums.jpg';
@@ -11,25 +12,25 @@ import quotes from '../../images/quotes.jpg';
 import tent from '../../images/tent.jpg';
 
 // Projects
-const yelpCamp = {
+const yelpCamp: ProjectType = {
   img: tent,
   text:'A website specifically for camp sites. Users can upload their favourite camps',
   src:'https://github.com/abu271/Yelp-Camp',
   demo:'https://abu-yelp-camp.herokuapp.com/'
 };
-const reduxCalculator = {
+const reduxCalculator: ProjectType = {
   img: numbers,
   text:'Simple calculator app built with react and redux.',
   src:'https://github.com/abu271/redux-calculator',
   demo:'https://reduxulator.netlify.com/'
 };
-const randomQuote = {
+const randomQuote: ProjectType = {
   img: quotes,
   text:'By clicking the "New Quote" button a random inspirational quote would be displayed. Also, your favourite quote can be tweeted.',
   src:'https://github.com/abu271/random-quote-machine',
   demo:'https://react-random-quotes.netlify.com/'
 };
-const drums = {
+const drums: ProjectType = {
   img: drumsPic,
   text:'Get ready to rock some awesome beats. Click on the keypads to play sounds or press the corresponding letter on your keyboard.',
   src:'https://github.com/abu271/drum-machine',
