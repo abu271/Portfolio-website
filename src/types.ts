@@ -4,3 +4,9 @@ export type ProjectType = {
     src: string,
     demo: string
 }
+
+export type PopupType = {
+    showPopup?: boolean,
+    text?: string,
+    closePopup? : React.MouseEventHandler<HTMLButtonElement>
+}
