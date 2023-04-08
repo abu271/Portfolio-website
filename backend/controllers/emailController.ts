@@ -1,8 +1,14 @@
 const nodemailer = require('nodemailer');
 const creds = require('../config');
 
+interface RequestBody {
+  name: string;
+  email: string;
+  message: string;
+}
+
 class EmailController {
-  sendEmail (req, res) {
+  sendEmail (req: { body: RequestBody }, res: any) {
     const name = req.body.name;
     const email = req.body.email;
     const message = req.body.message;
@@ -23,9 +29,9 @@ class EmailController {
     
     const transporter = nodemailer.createTransport(transport);
     
-    transporter.verify((error, success) => {
-      if (error) {
-        console.log(error);
+    transporter.verify((err: any) => {
+      if (err) {
+        console.log(err);
       } else {
         console.log('Server is ready to take messages');
       }
@@ -38,7 +44,7 @@ class EmailController {
       text: content
     };
     
-    transporter.sendMail(mail, (err, data) => {
+    transporter.sendMail(mail, (err: any) => {
       if (err) {
         console.log(err)
         res.status(400).send({

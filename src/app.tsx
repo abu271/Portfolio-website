@@ -1,9 +1,9 @@
 import React, {lazy, Suspense} from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Loader from './components/Loader/Loader.tsx';
+import Loader from './components/Loader/Loader';
 
 // Pages
-const Home = lazy(() => import('./pages/home/home.tsx'));
+const Home = lazy(() => import('./pages/home/home'));
 const About = lazy(() => import('./pages/about/about'));
 const Contact = lazy(() => import('./pages/contact/contact'));
 const Projects = lazy(() => import('./pages/projects/projects'));
