@@ -1,0 +1,22 @@
+name: Portfolio Website
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Deploy to linode server
+      uses: fifsky/ssh-action@master
+      with:
+        command: |
+          cd /home/thor/apps/Portfolio-website/.github/workflows
+          ./deploy_app.sh
+
+        host: ${{ secrets.HOST }}
+        user: ${{ secrets.USERNAME }}
+        key: ${{ secrets.SSH_KEY }}
