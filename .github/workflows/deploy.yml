@@ -10,12 +10,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Deploy to linode server
+    - name: Deploy App
       uses: fifsky/ssh-action@master
       with:
         command: |
+          git pull origin master
           cd /home/thor/apps/Portfolio-website/.github/workflows
-          ./deploy_app.sh
+
+          npm ci
+          npm run build
+
+          pm2 stop ../../ecosystem.config.js
+          pm2 start ../../ecosystem.config.js
 
         host: ${{ secrets.HOST }}
         user: ${{ secrets.USERNAME }}
