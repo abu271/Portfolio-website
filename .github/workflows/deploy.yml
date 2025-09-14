@@ -6,23 +6,37 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - name: Deploy App
+    - name: Pull Source Code
       uses: fifsky/ssh-action@master
       with:
         command: |
+          cd /home/thor/apps/Portfolio-website
           git pull origin master
-          cd /home/thor/apps/Portfolio-website/.github/workflows
+        host: ${{ secrets.HOST }}
+        user: ${{ secrets.USERNAME }}
+        key: ${{ secrets.SSH_KEY }}
 
+    - name: Build
+      uses: fifsky/ssh-action@master
+      with:
+        command: |
+          cd /home/thor/apps/Portfolio-website
           npm ci
           npm run build
+        host: ${{ secrets.HOST }}
+        user: ${{ secrets.USERNAME }}
+        key: ${{ secrets.SSH_KEY }}
 
+    - name: Start App
+      uses: fifsky/ssh-action@master
+      with:
+        command: |
+          cd /home/thor/apps/Portfolio-website
           pm2 stop ../../ecosystem.config.js
           pm2 start ../../ecosystem.config.js
-
         host: ${{ secrets.HOST }}
         user: ${{ secrets.USERNAME }}
         key: ${{ secrets.SSH_KEY }}
