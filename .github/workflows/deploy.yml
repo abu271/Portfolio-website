@@ -2,7 +2,7 @@ name: Portfolio Website
 
 on:
   push:
-    branches: [ master, pipeline-update ]
+    branches: [ master ]
 
 jobs:
   deploy:
