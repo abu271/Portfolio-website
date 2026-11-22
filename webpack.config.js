@@ -3,6 +3,42 @@ const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 
+const enableImageMinify = process.env.IMAGE_MINIFY === 'true';
+
+const imageLoaders = [
+  {
+    loader: 'url-loader',
+  },
+];
+
+if (enableImageMinify) {
+  imageLoaders.push({
+    loader: 'image-webpack-loader',
+    options: {
+      mozjpeg: {
+        progressive: true,
+        quality: 65
+      },
+      // optipng.enabled: false will disable optipng
+      optipng: {
+        enabled: false,
+      },
+      pngquant: {
+        quality: [0.65, 0.90],
+        speed: 4
+      },
+      gifsicle: {
+        interlaced: false,
+      },
+      // the webp option will enable WEBP
+      webp: {
+        quality: 65,
+        size:1000
+      }
+    }
+  });
+}
+
 module.exports = {
   entry: './src/index.tsx',
   output: {
@@ -30,37 +66,7 @@ module.exports = {
       { test: /\.css$/, use: ['style-loader', 'css-loader' ]},
       { 
         test: /\.(png|svg|jpg|gif)$/, 
-        use:
-         [
-           {
-             loader: 'url-loader',
-           },
-           {
-             loader: 'image-webpack-loader',
-             options: {
-               mozjpeg: {
-                 progressive: true,
-                 quality: 65
-               },
-               // optipng.enabled: false will disable optipng
-               optipng: {
-                 enabled: false,
-               },
-               pngquant: {
-                 quality: [0.65, 0.90],
-                 speed: 4
-               },
-               gifsicle: {
-                 interlaced: false,
-               },
-               // the webp option will enable WEBP
-               webp: {
-                 quality: 65,
-                 size:1000
-               }
-             }
-           }
-         ]
+        use: imageLoaders
       }
     ]
   },
